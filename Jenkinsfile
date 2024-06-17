@@ -27,7 +27,7 @@ pipeline {
                 sh """
                     ls -lrt
                     cd terraform
-                    terraform init
+                    terraform init -lock=false
                 """
             }
         }
@@ -35,7 +35,7 @@ pipeline {
             steps{
                 sh """
                     cd terraform
-                    terraform plan -var="app_version=${params.appVersion}"
+                    terraform plan -var="app_version=${params.appVersion}" -lock=false
                 """
             }
         }
