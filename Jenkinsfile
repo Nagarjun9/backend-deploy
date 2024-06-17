@@ -25,6 +25,7 @@ pipeline {
         stage('Init'){
             steps{
                 sh """
+                    ls -lrt
                     cd terraform
                     terraform init
                 """
